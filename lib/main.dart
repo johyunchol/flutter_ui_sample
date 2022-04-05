@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sample/src/baemin/baemin_home.dart';
 import 'package:sample/src/kakaotalk/chat_room_list.dart';
 
 void main() {
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         brightness: Brightness.light,
@@ -39,11 +41,45 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  List<Map<String, dynamic>> list = [
+    {
+      'title': '카카오 채팅방 UI',
+      'func': () => Get.to(const ChatRoomList()),
+    },
+    {
+      'title': '배달의민족 홈 UI',
+      'func': () => Get.to(const BaeminHome()),
+    }
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
+        appBar: AppBar(),
+        body: ListView.separated(
+          separatorBuilder: (BuildContext context, int index) {
+            return Divider(height: 1);
+          },
+          itemBuilder: (BuildContext context, int index) {
+            return Ink(
+              child: InkWell(
+                onTap: list[index]['func'],
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 24.0),
+                    child: Text(
+                      list[index]['title'],
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
+          itemCount: list.length,
+        )
+        /*body: Column(
         children: [
           ElevatedButton(
               onPressed: () {
@@ -52,7 +88,7 @@ class _AppState extends State<App> {
               },
               child: Text('카톡채팅방 UI'))
         ],
-      ),
-    );
+      ),*/
+        );
   }
 }
