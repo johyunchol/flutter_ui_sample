@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sample/src/baemin/baemin_home.dart';
+import 'package:sample/src/carrot/carrot_home.dart';
+import 'package:sample/src/carrot/carrot_home_bak.dart';
 import 'package:sample/src/kakaotalk/chat_room_list.dart';
 
 void main() {
@@ -20,10 +22,10 @@ class MyApp extends StatelessWidget {
         /* light theme settings */
       ),
       darkTheme: ThemeData(
-        brightness: Brightness.dark,
+        brightness: Brightness.light,
         /* dark theme settings */
       ),
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       /* ThemeMode.system to follow system theme,
          ThemeMode.light for light theme,
          ThemeMode.dark for dark theme
@@ -49,6 +51,14 @@ class _AppState extends State<App> {
     {
       'title': '배달의민족 홈 UI',
       'func': () => Get.to(const BaeminHome()),
+    },
+    {
+      'title': '당근마켓 홈 UI',
+      'func': () => Get.offAll(const CarrotHome()),
+    },
+    {
+      'title': '당근마켓 홈 UI2',
+      'func': () => Get.to(const CarrotHome2()),
     }
   ];
 
