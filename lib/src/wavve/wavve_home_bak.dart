@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class WavveHome extends StatefulWidget {
@@ -15,6 +16,7 @@ class _WavveHomeState extends State<WavveHome> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            systemOverlayStyle: const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
