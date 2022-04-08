@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sample/src/baemin/baemin_home.dart';
 import 'package:sample/src/carrot/carrot_home.dart';
-import 'package:sample/src/carrot/carrot_home_bak.dart';
 import 'package:sample/src/kakaotalk/chat_room_list.dart';
 
 void main() {
@@ -55,10 +54,6 @@ class _AppState extends State<App> {
     {
       'title': '당근마켓 홈 UI',
       'func': () => Get.offAll(const CarrotHome()),
-    },
-    {
-      'title': '당근마켓 홈 UI2',
-      'func': () => Get.to(const CarrotHome2()),
     }
   ];
 
