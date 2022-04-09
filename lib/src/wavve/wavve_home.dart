@@ -38,65 +38,81 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
   }
 
   Widget _type2() {
-    Widget _item() {
-      return Column(
-        children: [
-          ClipOval(
-            child: Stack(
-              children: [
-                Image.network(
-                  'https://img2.sbs.co.kr/img/sbs_cms/SR/2018/02/01/SR94496579_w1280_h720.jpg',
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
-              ],
+    Widget _item({required String image, required String title}) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Column(
+          children: [
+            ClipOval(
+              child: Stack(
+                children: [
+                  Image.network(
+                    image,
+                    width: 80,
+                    height: 80,
+                    fit: BoxFit.cover,
+                  ),
+                ],
+              ),
             ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 4),
-            width: 60,
-            child: Text(
-              '뿌리깊은 나무',
-              style: TextStyle(color: Colors.grey, fontSize: 16),
-              textAlign: TextAlign.center,
+            Container(
+              margin: const EdgeInsets.only(top: 4),
+              width: 60,
+              child: Text(
+                title,
+                style: TextStyle(color: Colors.grey, fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       );
     }
 
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              Text('#시청 중 콘텐츠'),
-              Text('더보기>'),
+              Text(
+                '#시청 중 콘텐츠',
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+              Text(
+                '더보기 >',
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
             ],
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: List.generate(10, (index) => Row(children: [_item(), SizedBox(width: 8)],)),
-            ),
+        ),
+        const SizedBox(height: 8),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              _item(image: 'https://img2.sbs.co.kr/img/sbs_cms/SR/2018/02/01/SR94496579_w1280_h720.jpg', title: '뿌리깊은 나무'),
+              _item(image: 'https://img2.sbs.co.kr/img/sbs_cms/SR/2018/02/01/SR94496579_w1280_h720.jpg', title: '뿌리깊은 나무'),
+              _item(image: 'https://img2.sbs.co.kr/img/sbs_cms/SR/2018/02/01/SR94496579_w1280_h720.jpg', title: '뿌리깊은 나무'),
+            ],
           ),
-          /*ListView.separated(
-            itemBuilder: (BuildContext context, int index) {
-              return _item();
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return const Divider(color: Colors.transparent);
-            },
-            itemCount: 10,
-            scrollDirection: Axis.horizontal,
-            shrinkWrap: true,
-          ),*/
-        ],
-      ),
+        ),
+        /*ListView.separated(
+          itemBuilder: (BuildContext context, int index) {
+            return _item();
+          },
+          separatorBuilder: (BuildContext context, int index) {
+            return const Divider(color: Colors.transparent);
+          },
+          itemCount: 10,
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          shrinkWrap: true,
+        ),*/
+      ],
     );
   }
 
@@ -106,6 +122,21 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 27, 27, 27),
+      bottomNavigationBar: BottomNavigationBar(
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(255, 16, 16, 16),
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.white,
+        selectedLabelStyle: const TextStyle(color: Colors.white),
+        unselectedItemColor: Colors.grey,
+        unselectedLabelStyle: const TextStyle(color: Colors.grey),
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: '홈'),
+          BottomNavigationBarItem(icon: Icon(Icons.menu_outlined), label: '카테고리'),
+          BottomNavigationBarItem(icon: Icon(Icons.search_outlined), label: '검색'),
+          BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: 'MY'),
+        ],
+      ),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
