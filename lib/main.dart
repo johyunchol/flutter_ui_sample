@@ -18,14 +18,14 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         /* light theme settings */
       ),
       darkTheme: ThemeData(
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         /* dark theme settings */
       ),
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
       /* ThemeMode.system to follow system theme,
          ThemeMode.light for light theme,
          ThemeMode.dark for dark theme
