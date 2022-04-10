@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sample/src/wavve/type_2.dart';
 import 'package:sample/src/wavve/type_4.dart';
+import 'package:sample/src/wavve/type_5.dart';
 import 'package:sample/src/wavve/wavve_home_list_item_type_2.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -126,6 +127,9 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
             type4('wavve ORIGINAL #독점 #최초공개', orgList),
             SizedBox(height: 24),
             type4('매주 신작 업데이트! #HBO 시리즈', newHBOList),
+            SizedBox(height: 24),
+            type5('https://img.wavve.com/banner/pooq/2022/20220405_banner_094821_w2250_h390_q75.jpg'),
+            SizedBox(height: 24),
           ])),
         ],
       ),
