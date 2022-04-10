@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sample/src/wavve/type_2.dart';
 import 'package:sample/src/wavve/type_4.dart';
 import 'package:sample/src/wavve/type_5.dart';
+import 'package:sample/src/wavve/type_6.dart';
 import 'package:sample/src/wavve/wavve_home_list_item_type_2.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -17,8 +18,10 @@ class BannerItem {
 class ContentsItem {
   final String imageUrl;
   final String title;
+  final String? subTitle;
+  final bool? isChecked;
 
-  ContentsItem({required this.imageUrl, required this.title});
+  ContentsItem({required this.imageUrl, required this.title, this.subTitle, this.isChecked});
 }
 
 class WavveHome extends StatefulWidget {
@@ -62,6 +65,13 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
     ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202107/F3501_F35000000005-2-RE-RE_w312_h468_q75.jpg', title: '트루 디텍티브 시즌1'),
     ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202108/F3501_F35000000018-2-RE_w312_h468_q75.jpg', title: '섹스 앤 더 시티 시즌1'),
   ];
+
+  List<ContentsItem> soonList = [
+    ContentsItem(imageUrl: 'https://img.wavve.com/202203/20220330/2211efd579d71ecee462257313c6256e_w972_h546_q75.jpg?timestamp=1649598683533', title: '금천불시최후일천', subTitle: '4월 12일, 함께여서 빛나는 두 사람을 만나다', isChecked: true),
+    ContentsItem(imageUrl: 'https://img.wavve.com/202203/20220329/02a21f5bb7117604a2956b2365f9a81d_w972_h546_q75.jpg?timestamp=1649598683533', title: '혼공, 조남호의 입시코드', subTitle: '4월 16일(토) 낮 12시 10분 첫 방송!', isChecked: false),
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/NewProgramImg/K02_T2021-0320/2022033011320143_w972_h546_q75.jpg?timestamp=1649598683533', title: '너에게 가는 속도 493km', subTitle: '4월 20일 밤 9시 50분 첫 방송!', isChecked: false),
+  ];
+
 
   Widget _images(String backgroundImg, String foregroundImg) {
     return Stack(
@@ -129,6 +139,8 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
             type4('매주 신작 업데이트! #HBO 시리즈', newHBOList),
             SizedBox(height: 24),
             type5('https://img.wavve.com/banner/pooq/2022/20220405_banner_094821_w2250_h390_q75.jpg'),
+            SizedBox(height: 24),
+            type6('매주 신작 업데이트! #HBO 시리즈', soonList),
             SizedBox(height: 24),
           ])),
         ],
