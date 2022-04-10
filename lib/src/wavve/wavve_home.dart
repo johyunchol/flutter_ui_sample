@@ -1,18 +1,23 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sample/src/wavve/type_2.dart';
+import 'package:sample/src/wavve/type_4.dart';
 import 'package:sample/src/wavve/wavve_home_list_item_type_2.dart';
-import 'package:sample/src/wavve/wavve_home_list_item_type_4.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class ImageItem {
+class BannerItem {
   final String background;
   final String foreground;
 
-  ImageItem({required this.background, required this.foreground});
+  BannerItem({required this.background, required this.foreground});
+}
+
+class ContentsItem {
+  final String imageUrl;
+  final String title;
+
+  ContentsItem({required this.imageUrl, required this.title});
 }
 
 class WavveHome extends StatefulWidget {
@@ -23,11 +28,38 @@ class WavveHome extends StatefulWidget {
 }
 
 class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMixin {
-  List<ImageItem> list = [
-    ImageItem(background: 'https://img.wavve.com/banner/pooq/2022/20220402_banner_003538.jpg', foreground: 'https://img.wavve.com/banner/pooq/2022/imgbuild_20220402_003637253.png'),
-    ImageItem(background: 'https://img.wavve.com/banner/pooq/2022/20220330_banner_233740.jpg', foreground: 'https://img.wavve.com/banner/pooq/2022/imgbuild_20220330_233816417.png'),
-    ImageItem(background: 'https://img.wavve.com/banner/pooq/2022/20220405_banner_144445.jpg', foreground: 'https://img.wavve.com/banner/pooq/2022/imgbuild_20220405_144523608.png'),
-    ImageItem(background: 'https://img.wavve.com/banner/pooq/2022/20220322_banner_131410.jpg', foreground: 'https://img.wavve.com/banner/pooq/2022/imgbuild_20220322_131725459.png'),
+  List<BannerItem> list = [
+    BannerItem(background: 'https://img.wavve.com/banner/pooq/2022/20220402_banner_003538.jpg', foreground: 'https://img.wavve.com/banner/pooq/2022/imgbuild_20220402_003637253.png'),
+    BannerItem(background: 'https://img.wavve.com/banner/pooq/2022/20220330_banner_233740.jpg', foreground: 'https://img.wavve.com/banner/pooq/2022/imgbuild_20220330_233816417.png'),
+    BannerItem(background: 'https://img.wavve.com/banner/pooq/2022/20220405_banner_144445.jpg', foreground: 'https://img.wavve.com/banner/pooq/2022/imgbuild_20220405_144523608.png'),
+    BannerItem(background: 'https://img.wavve.com/banner/pooq/2022/20220322_banner_131410.jpg', foreground: 'https://img.wavve.com/banner/pooq/2022/imgbuild_20220322_131725459.png'),
+  ];
+
+  List<ContentsItem> nowList = [
+    ContentsItem(imageUrl: 'https://img.wavve.com/202011/20201103/a4857c2e4833b023dc35080da5bdc4a5_w312_h468_q75.jpg', title: '구해줘! 홈즈'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/fz/202112/20211206/5cb676af50f89a4b808627465bbe62c0_w312_h468_q75.jpg', title: '태종 이방원'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/fz/202111/20211123/748592bd6f9bbc4f9878c67f58418909_w312_h468_q75.jpg', title: '슈퍼맨이 돌아왔다'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202112/S01_V0000330171_w312_h468_q75.jpg', title: '런닝맨'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202201/S01_V2000009613-2_w312_h468_q75.jpg', title: '미운 우리 새끼'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/202203/20220321/22839cc069aab4862eb6548371408057_w312_h468_q75.jpg', title: '현재는 아름다워'),
+  ];
+
+  List<ContentsItem> orgList = [
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202203/C9901_C99000000088-2_w312_h468_q75.jpg', title: 'EXO의 사다리 타고 세계여행 시즌3 : 남해편'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202203/C9901_C99000000087-2-RERERE_w312_h468_q75.jpg', title: 'MMM: Where are we now'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202203/C9902_C99000000007-2_w312_h468_q75.jpg', title: '돌싱글즈 외전: 가족의 탄생'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202203/C9902_C99000000008-2-RE_w312_h468_q75.jpg', title: '혼공, 조남호의 입시코드'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202201/C9902_C99000000006-2_w312_h468_q75.jpg', title: '홀인러브'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202110/C9901_C99000000076-2-RE_w312_h468_q75.jpg', title: '이렇게 된 이상 청와대로 간다'),
+  ];
+
+  List<ContentsItem> newHBOList = [
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202202/F3501_F35000000173-2_w312_h468_q75.jpg', title: '하이 메인터넌스 시즌1'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202202/F3501_F35000000172-2_w312_h468_q75.jpg', title: '컴백 시즌1'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202203/F3501_F35000000181-2_w312_h468_q75.jpg', title: '비만나라의 아이들'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202203/F3501_F35000000180-2_w312_h468_q75.jpg', title: '인 트리트먼트 시즌3'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202107/F3501_F35000000005-2-RE-RE_w312_h468_q75.jpg', title: '트루 디텍티브 시즌1'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202108/F3501_F35000000018-2-RE_w312_h468_q75.jpg', title: '섹스 앤 더 시티 시즌1'),
   ];
 
   Widget _images(String backgroundImg, String foregroundImg) {
@@ -43,7 +75,6 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     PageController pageController = PageController();
-
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 27, 27, 27),
       bottomNavigationBar: BottomNavigationBar(
@@ -76,18 +107,11 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
               collapseMode: CollapseMode.pin,
               background: Stack(
                 children: [
-                  PageView(
-                    controller: pageController,
-                    children: list.map((item) => _images(item.background, item.foreground)).toList(),
-                  ),
+                  PageView(controller: pageController, children: list.map((item) => _images(item.background, item.foreground)).toList()),
                   Positioned(
                     left: 16,
                     bottom: 16,
-                    child: SmoothPageIndicator(
-                      controller: pageController,
-                      count: 4,
-                      effect: const WormEffect(dotWidth: 6, dotHeight: 6, activeDotColor: Colors.white, dotColor: Colors.grey),
-                    ),
+                    child: SmoothPageIndicator(controller: pageController, count: 4, effect: const WormEffect(dotWidth: 6, dotHeight: 6, activeDotColor: Colors.white, dotColor: Colors.grey)),
                   )
                 ],
               ),
@@ -95,10 +119,13 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
           ),
           SliverList(
               delegate: SliverChildListDelegate([
-            // type2(),
-                ListItemType2(),
-                SizedBox(height: 16),
-                ListItemType4(),
+            type2(),
+            SizedBox(height: 24),
+            type4('실시간 인기 프로그램', nowList),
+            SizedBox(height: 24),
+            type4('wavve ORIGINAL #독점 #최초공개', orgList),
+            SizedBox(height: 24),
+            type4('매주 신작 업데이트! #HBO 시리즈', newHBOList),
           ])),
         ],
       ),

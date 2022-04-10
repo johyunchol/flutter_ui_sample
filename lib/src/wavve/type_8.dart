@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sample/src/wavve/wavve_home_list_item_base.dart';
 
-class ListItemType4 extends StatelessWidget {
-  const ListItemType4({Key? key, required this.title, this.onTapMore}) : super(key: key);
-
-  final String title;
-  final GestureTapCallback? onTapMore;
-
+Widget type8() {
   Widget _textComponent({
     required String title,
     required Color color,
@@ -25,7 +19,7 @@ class ListItemType4 extends StatelessWidget {
       ),
     );
   }
-
+  
   Widget _item({required String image, required String title}) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 2.0),
@@ -78,21 +72,32 @@ class ListItemType4 extends StatelessWidget {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return ListItemBase(
-      title: title,
-      onTapMore: onTapMore,
-      body: SingleChildScrollView(
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            Text('#시청 중 콘텐츠', style: TextStyle(fontSize: 18, color: Colors.white)),
+            Text('더보기 〉', style: TextStyle(fontSize: 18, color: Colors.white)),
+          ],
+        ),
+      ),
+      const SizedBox(height: 8),
+      SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: List.generate(
             14,
-            (index) => _item(image: 'https://img.wavve.com/BMS/program_poster/202201/M_1003594100000100000-2_RE_w312_h468_q75.jpg', title: '전지적 참견시점'),
+            (index) => _item(image: 'https://img.wavve.com/201802/20180212/1afc3f891f8ea85030a0cb1f176f6f7d_w504_square.jpg?timestamp=1649598683657', title: '뿌리깊은 나무'),
           ),
         ),
       ),
-    );
-  }
+    ],
+  );
 }
+

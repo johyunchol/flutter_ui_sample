@@ -39,7 +39,7 @@ class ListItemBase extends StatelessWidget {
         //     mainAxisAlignment: MainAxisAlignment.start,
         //     children: List.generate(
         //       14,
-        //       (index) => _item(image: 'https://img2.sbs.co.kr/img/sbs_cms/SR/2018/02/01/SR94496579_w1280_h720.jpg', title: '뿌리깊은 나무'),
+        //       (index) => _item(image: 'https://img.wavve.com/201802/20180212/1afc3f891f8ea85030a0cb1f176f6f7d_w504_square.jpg?timestamp=1649598683657', title: '뿌리깊은 나무'),
         //     ),
         //   ),
         // ),
