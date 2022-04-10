@@ -5,6 +5,7 @@ import 'package:sample/src/wavve/type_2.dart';
 import 'package:sample/src/wavve/type_4.dart';
 import 'package:sample/src/wavve/type_5.dart';
 import 'package:sample/src/wavve/type_6.dart';
+import 'package:sample/src/wavve/type_7.dart';
 import 'package:sample/src/wavve/wavve_home_list_item_type_2.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -72,6 +73,12 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
     ContentsItem(imageUrl: 'https://img.wavve.com/BMS/NewProgramImg/K02_T2021-0320/2022033011320143_w972_h546_q75.jpg?timestamp=1649598683533', title: '너에게 가는 속도 493km', subTitle: '4월 20일 밤 9시 50분 첫 방송!', isChecked: false),
   ];
 
+  List<ContentsItem> top20List = [
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202111/M_1002831100000100000-2_w312_h468_q75.jpg', title: '나 혼자 산다'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/202201/20220127/ae4465d001a0a8d3be382f9324b3eb5b_w312_h468_q75.jpg', title: '놀면 뭐하니?'),
+    ContentsItem(imageUrl: 'https://img.pooq.co.kr/201805/20180530/d91633f8113409d77373de672f61739a_w312_h468_q75.jpg', title: '그것이 알고싶다'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202201/M_1003594100000100000-2_RE_w312_h468_q75.jpg', title: '전지적 참견 시점'),
+  ];
 
   Widget _images(String backgroundImg, String foregroundImg) {
     return Stack(
@@ -140,7 +147,9 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
             SizedBox(height: 24),
             type5('https://img.wavve.com/banner/pooq/2022/20220405_banner_094821_w2250_h390_q75.jpg'),
             SizedBox(height: 24),
-            type6('매주 신작 업데이트! #HBO 시리즈', soonList),
+            type6('두근두근 Coming Soon', soonList),
+            SizedBox(height: 24),
+            type7('오늘의 TOP 20', top20List),
             SizedBox(height: 24),
           ])),
         ],
