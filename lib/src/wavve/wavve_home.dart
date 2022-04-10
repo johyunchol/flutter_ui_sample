@@ -3,6 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sample/src/wavve/type_2.dart';
+import 'package:sample/src/wavve/wavve_home_list_item_type_2.dart';
+import 'package:sample/src/wavve/wavve_home_list_item_type_4.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ImageItem {
@@ -33,85 +36,6 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
       children: [
         Image.network(backgroundImg, fit: BoxFit.cover),
         Image.network(foregroundImg, fit: BoxFit.cover),
-      ],
-    );
-  }
-
-  Widget _type2() {
-    Widget _item({required String image, required String title}) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Column(
-          children: [
-            ClipOval(
-              child: Stack(
-                children: [
-                  Image.network(
-                    image,
-                    width: 80,
-                    height: 80,
-                    fit: BoxFit.cover,
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 4),
-              width: 60,
-              child: Text(
-                title,
-                style: TextStyle(color: Colors.grey, fontSize: 16),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text(
-                '#시청 중 콘텐츠',
-                style: TextStyle(fontSize: 18, color: Colors.white),
-              ),
-              Text(
-                '더보기 >',
-                style: TextStyle(fontSize: 18, color: Colors.white),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 8),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              _item(image: 'https://img2.sbs.co.kr/img/sbs_cms/SR/2018/02/01/SR94496579_w1280_h720.jpg', title: '뿌리깊은 나무'),
-              _item(image: 'https://img2.sbs.co.kr/img/sbs_cms/SR/2018/02/01/SR94496579_w1280_h720.jpg', title: '뿌리깊은 나무'),
-              _item(image: 'https://img2.sbs.co.kr/img/sbs_cms/SR/2018/02/01/SR94496579_w1280_h720.jpg', title: '뿌리깊은 나무'),
-            ],
-          ),
-        ),
-        /*ListView.separated(
-          itemBuilder: (BuildContext context, int index) {
-            return _item();
-          },
-          separatorBuilder: (BuildContext context, int index) {
-            return const Divider(color: Colors.transparent);
-          },
-          itemCount: 10,
-          scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          shrinkWrap: true,
-        ),*/
       ],
     );
   }
@@ -169,7 +93,13 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
               ),
             ),
           ),
-          SliverList(delegate: SliverChildListDelegate([_type2()])),
+          SliverList(
+              delegate: SliverChildListDelegate([
+            // type2(),
+                ListItemType2(),
+                SizedBox(height: 16),
+                ListItemType4(),
+          ])),
         ],
       ),
     );
