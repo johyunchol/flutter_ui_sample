@@ -6,6 +6,7 @@ import 'package:sample/src/wavve/type_4.dart';
 import 'package:sample/src/wavve/type_5.dart';
 import 'package:sample/src/wavve/type_6.dart';
 import 'package:sample/src/wavve/type_7.dart';
+import 'package:sample/src/wavve/type_9.dart';
 import 'package:sample/src/wavve/wavve_home_list_item_type_2.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -150,6 +151,8 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
             type6('두근두근 Coming Soon', soonList),
             SizedBox(height: 24),
             type7('오늘의 TOP 20', top20List),
+            SizedBox(height: 24),
+            type9(),
             SizedBox(height: 24),
           ])),
         ],
