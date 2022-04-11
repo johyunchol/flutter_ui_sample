@@ -152,7 +152,7 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
             SizedBox(height: 24),
             type7('오늘의 TOP 20', top20List),
             SizedBox(height: 24),
-            type9(),
+            Type9(),
             SizedBox(height: 24),
           ])),
         ],
