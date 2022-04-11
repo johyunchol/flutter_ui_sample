@@ -8,7 +8,6 @@ import 'package:sample/src/wavve/type_6.dart';
 import 'package:sample/src/wavve/type_7.dart';
 import 'package:sample/src/wavve/type_8.dart';
 import 'package:sample/src/wavve/type_9.dart';
-import 'package:sample/src/wavve/wavve_home_list_item_type_2.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class BannerItem {

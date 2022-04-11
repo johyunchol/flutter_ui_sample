@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Type9 extends StatefulWidget {
   const Type9({Key? key}) : super(key: key);
@@ -23,14 +22,9 @@ class _Type9State extends State<Type9> {
   _timer() async {
     timer = Timer.periodic(const Duration(seconds: 3), (timer) async {
       int page = noticePageController.page!.toInt();
-
       page++;
-      if (page >= (list.length)) {
-        page = 0;
-      }
-
+      if (page >= (list.length)) page = 0;
       setState(() {
-        print("page : $page");
         noticePageController.animateToPage(page, duration: const Duration(milliseconds: 400), curve: Curves.easeIn);
       });
     });
@@ -63,13 +57,17 @@ class _Type9State extends State<Type9> {
                 children: [
                   Icon(Icons.volume_up),
                   Positioned(
-                      top: 0,
-                      right: 0,
-                      child: Container(
-                        width: 4,
-                        height: 4,
-                        decoration: BoxDecoration(color: Colors.purpleAccent, shape: BoxShape.circle),
-                      )),
+                    top: 0,
+                    right: 0,
+                    child: Container(
+                      width: 4,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: Colors.purpleAccent,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -85,7 +83,12 @@ class _Type9State extends State<Type9> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(list[index], overflow: TextOverflow.ellipsis, maxLines: 1, style: TextStyle(color: Colors.grey)),
+                            Text(
+                              list[index],
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              style: TextStyle(color: Colors.grey),
+                            ),
                           ],
                         )),
               ),
