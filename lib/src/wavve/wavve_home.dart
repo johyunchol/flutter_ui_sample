@@ -6,6 +6,7 @@ import 'package:sample/src/wavve/type_4.dart';
 import 'package:sample/src/wavve/type_5.dart';
 import 'package:sample/src/wavve/type_6.dart';
 import 'package:sample/src/wavve/type_7.dart';
+import 'package:sample/src/wavve/type_8.dart';
 import 'package:sample/src/wavve/type_9.dart';
 import 'package:sample/src/wavve/wavve_home_list_item_type_2.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -81,6 +82,14 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
     ContentsItem(imageUrl: 'https://img.wavve.com/BMS/program_poster/202201/M_1003594100000100000-2_RE_w312_h468_q75.jpg', title: '전지적 참견 시점'),
   ];
 
+  List<ContentsItem> movieList = [
+    ContentsItem(imageUrl: 'https://img.wavve.com/movieImg/MV_CF01/1/MV_CF01_SY0000011741_w312_h468_q75.jpg', title: '(자막) 스파이더맨: 노 웨이 홈'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/movieImg/MV_CH01/8/MV_CH01_FX0000011608_w312_h468_q75.jpg', title: '나일 강의 죽음'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/movieImg/MV_CH01/0/MV_CH01_FX0000011610-RE_w312_h468_q75.jpg', title: '타미 페이의 눈'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/movieImg/MV_CT01/2/MV_CT01_MBC000013752_w312_h468_q75.jpg', title: '블랙 라이트'),
+    ContentsItem(imageUrl: 'https://img.wavve.com/movieImg/MV_C3001/2/MV_C3001_C300000012532_w312_h468_q75.jpg', title: '킹메이커'),
+  ];
+
   Widget _images(String backgroundImg, String foregroundImg) {
     return Stack(
       fit: StackFit.expand,
@@ -138,7 +147,7 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
           ),
           SliverList(
               delegate: SliverChildListDelegate([
-            type2(),
+            Type2(),
             SizedBox(height: 24),
             type4('실시간 인기 프로그램', nowList),
             SizedBox(height: 24),
@@ -146,11 +155,13 @@ class _WavveHomeState extends State<WavveHome> with SingleTickerProviderStateMix
             SizedBox(height: 24),
             type4('매주 신작 업데이트! #HBO 시리즈', newHBOList),
             SizedBox(height: 24),
-            type5('https://img.wavve.com/banner/pooq/2022/20220405_banner_094821_w2250_h390_q75.jpg'),
+            Type5(imageUrl: 'https://img.wavve.com/banner/pooq/2022/20220405_banner_094821_w2250_h390_q75.jpg'),
             SizedBox(height: 24),
             type6('두근두근 Coming Soon', soonList),
             SizedBox(height: 24),
-            type7('오늘의 TOP 20', top20List),
+            Type7(title: '오늘의 TOP 20', list: top20List),
+            SizedBox(height: 24),
+            Type8(title: '영화플러스 추천영화', list: movieList),
             SizedBox(height: 24),
             Type9(),
             SizedBox(height: 24),

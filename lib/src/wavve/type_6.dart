@@ -13,7 +13,6 @@ Widget type6(String title, List<ContentsItem> list) {
             Image.network(item.imageUrl, width: MediaQuery.of(context).size.width * 0.7, height: 180, fit: BoxFit.cover),
             Container(
               width: MediaQuery.of(context).size.width * 0.7,
-
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -22,25 +21,12 @@ Widget type6(String title, List<ContentsItem> list) {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 4),
-                      Text(
-                        item.title,
-                        style: const TextStyle(color: Colors.grey, fontSize: 16),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
+                      Text(item.title, style: const TextStyle(color: Colors.grey, fontSize: 16), maxLines: 1, overflow: TextOverflow.ellipsis),
                       SizedBox(height: 4),
-                      Text(
-                        item.subTitle!,
-                        style: const TextStyle(color: Colors.grey, fontSize: 16),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
+                      Text(item.subTitle!, style: const TextStyle(color: Colors.grey, fontSize: 16), maxLines: 1, overflow: TextOverflow.ellipsis),
                     ],
                   )),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: item.isChecked! ? Icon(Icons.add_box, color: Colors.blue) : Icon(Icons.add_box_outlined, color: Colors.grey),
-                  ),
+                  Padding(padding: const EdgeInsets.symmetric(horizontal: 8.0), child: item.isChecked! ? Icon(Icons.add_box, color: Colors.blue) : Icon(Icons.add_box_outlined, color: Colors.grey)),
                 ],
               ),
             )

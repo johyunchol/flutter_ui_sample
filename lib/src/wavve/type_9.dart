@@ -11,38 +11,40 @@ class Type9 extends StatefulWidget {
 }
 
 class _Type9State extends State<Type9> {
-  PageController pageController = PageController();
+  PageController noticePageController = PageController();
+  Timer? timer;
 
   List<String> list = [
     "HBO시리즈 시청이벤트 안내",
     "[안드로이드 app] 구글플레이결제 적용 안내 (2022.4.1 업데이트)",
-    " wavve오리지널 'EXO의 사다리 타고 세계여행3' 시청 이벤트 안내 ",
+    "wavve오리지널 'EXO의 사다리 타고 세계여행3' 시청 이벤트 안내",
   ];
 
-  timer() async {
-    Timer.periodic(const Duration(seconds: 3), (timer) async {
-      int page = pageController.page!.toInt();
+  _timer() async {
+    timer = Timer.periodic(const Duration(seconds: 3), (timer) async {
+      int page = noticePageController.page!.toInt();
 
       page++;
-      if (page >= list.length) {
+      if (page >= (list.length)) {
         page = 0;
       }
 
       setState(() {
-        pageController.animateToPage(page, duration: const Duration(milliseconds: 400), curve: Curves.easeIn);
+        print("page : $page");
+        noticePageController.animateToPage(page, duration: const Duration(milliseconds: 400), curve: Curves.easeIn);
       });
     });
   }
 
   @override
   void initState() {
-    timer();
+    _timer();
     super.initState();
   }
 
   @override
   void dispose() {
-    pageController.dispose();
+    timer?.cancel();
     super.dispose();
   }
 
@@ -74,7 +76,7 @@ class _Type9State extends State<Type9> {
             SizedBox(width: 8),
             Expanded(
               child: PageView(
-                controller: pageController,
+                controller: noticePageController,
                 physics: const NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.vertical,
                 children: List.generate(

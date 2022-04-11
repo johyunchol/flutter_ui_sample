@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:sample/src/common/itcha_toast.dart';
 import 'package:sample/src/wavve/wavve_home.dart';
 
 Widget type4(String title, List<ContentsItem> list) {
   Widget _item({required String image, required String title}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 2.0),
-      child: Column(
-        children: [
-          Image.network(image, width: 120, height: 180, fit: BoxFit.cover),
-          Container(
-            margin: const EdgeInsets.only(top: 4),
-            width: 100,
-            child: Text(
-              title,
-              style: const TextStyle(color: Colors.grey, fontSize: 16),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
+    return InkWell(
+      onTap: () {
+        CommonToast.show("message");
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 2.0),
+        child: Column(
+          children: [
+            Image.network(image, width: 120, height: 180, fit: BoxFit.cover),
+            Container(
+              margin: const EdgeInsets.only(top: 4),
+              width: 100,
+              child: Text(
+                title,
+                style: const TextStyle(color: Colors.grey, fontSize: 16),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
