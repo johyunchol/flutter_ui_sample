@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sample/src/toss/account_page.dart';
+import 'package:sample/src/toss/contact_page.dart';
+import 'package:sample/src/toss/recommand_page.dart';
 
 class TossRemittance extends StatefulWidget {
   const TossRemittance({Key? key}) : super(key: key);
@@ -9,10 +12,12 @@ class TossRemittance extends StatefulWidget {
 
 class _TossRemittanceState extends State<TossRemittance> with SingleTickerProviderStateMixin {
   TabController? tabController;
+  PageController? pageController;
 
   @override
   void initState() {
     tabController = TabController(length: 3, vsync: this, initialIndex: 0);
+    pageController = PageController();
     super.initState();
   }
 
@@ -44,6 +49,11 @@ class _TossRemittanceState extends State<TossRemittance> with SingleTickerProvid
                       controller: tabController,
                       labelColor: Colors.white,
                       labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      onTap: (index) {
+                        setState(() {
+                          pageController?.animateToPage(index, duration: Duration(milliseconds: 300), curve: Curves.ease);
+                        });
+                      },
                       tabs: [
                         Tab(text: '추천'),
                         Tab(text: '계좌'),
@@ -55,19 +65,19 @@ class _TossRemittanceState extends State<TossRemittance> with SingleTickerProvid
               ),
             ),
             Expanded(
-                child: SingleChildScrollView(
-                    child: Column(
+                child: PageView(
+                  controller: pageController,
+              onPageChanged: (index) {
+                setState(() {
+                  tabController?.animateTo(index, duration: Duration(milliseconds: 300), curve: Curves.ease);
+                });
+              },
               children: [
-                Container(
-                  height: 1000,
-                  color: Colors.red,
-                ),
-                Container(
-                  height: 1000,
-                  color: Colors.blue,
-                ),
+                RecommandPage(),
+                AccountPage(),
+                ContactPage(),
               ],
-            ))),
+            )),
           ],
         ),
       ),
