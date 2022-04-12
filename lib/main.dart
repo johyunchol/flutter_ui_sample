@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sample/src/baemin/baemin_home.dart';
 import 'package:sample/src/carrot/carrot_home.dart';
 import 'package:sample/src/kakaotalk/chat_room_list.dart';
+import 'package:sample/src/toss/toss_remittance.dart';
 import 'package:sample/src/wavve/wavve_home.dart';
 
 void main() {
@@ -59,6 +60,10 @@ class _AppState extends State<App> {
     {
       'title': 'WAVVE 홈 UI',
       'func': () => Get.offAll(const WavveHome()),
+    },
+    {
+      'title': 'Toss 송금 UI',
+      'func': () => Get.offAll(const TossRemittance()),
     }
   ];
 
