@@ -7,5 +7,11 @@ class AccountInfo {
   final String bankAccountNumber;
   final bool? isFavorite;
 
-  AccountInfo({required this.bankType, this.isMainBank, required this.bankAccountName, required this.bankAccountNumber, this.isFavorite});
+  AccountInfo({
+    required this.bankType,
+    this.isMainBank,
+    required this.bankAccountName,
+    required this.bankAccountNumber,
+    this.isFavorite,
+  });
 }

@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sample/src/toss/model/account_info.dart';
 import 'package:sample/src/toss/model/bank_info.dart';
 
-enum BlockType {
-  MY_ACCOUNT,
-  RECENT_ACCOUNT,
-}
+enum BlockType { MY_ACCOUNT, RECENT_ACCOUNT }
 
 class RecommandPage extends StatefulWidget {
   const RecommandPage({Key? key}) : super(key: key);
@@ -56,31 +53,31 @@ class _RecommandPageState extends State<RecommandPage> {
               ),
               blockType == BlockType.MY_ACCOUNT && (accountInfo.isMainBank ?? false)
                   ? Positioned(
-                      top: 0,
-                      right: 0,
-                      child: Container(
-                        width: 10,
-                        height: 10,
-                        child: const Center(child: Icon(Icons.star, color: Colors.white, size: 8)),
-                        decoration: const BoxDecoration(color: Colors.lightBlue, shape: BoxShape.circle),
-                      ),
-                    )
+                top: 0,
+                right: 0,
+                child: Container(
+                  width: 10,
+                  height: 10,
+                  child: const Center(child: Icon(Icons.star, color: Colors.white, size: 8)),
+                  decoration: const BoxDecoration(color: Colors.lightBlue, shape: BoxShape.circle),
+                ),
+              )
                   : const SizedBox(),
             ],
           ),
           const SizedBox(width: 16),
           Expanded(
               child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(accountInfo.bankAccountName),
-              const SizedBox(height: 4),
-              Text(
-                '${accountInfo.bankType.bankName} ${accountInfo.bankAccountNumber}',
-                style: const TextStyle(color: Colors.grey),
-              ),
-            ],
-          )),
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(accountInfo.bankAccountName),
+                  const SizedBox(height: 4),
+                  Text(
+                    '${accountInfo.bankType.bankName} ${accountInfo.bankAccountNumber}',
+                      style: const TextStyle(color: Colors.grey),
+                  ),
+                ],
+              )),
           blockType == BlockType.RECENT_ACCOUNT ? Icon(Icons.star, color: (accountInfo.isFavorite ?? false) ? Colors.white : Colors.grey) : const SizedBox(),
         ],
       ),

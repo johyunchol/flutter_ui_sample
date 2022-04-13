@@ -1,12 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-enum BankType {
-  TOSS,
-  SHINHAN,
-  WOORI,
-  KAKAO
-}
+enum BankType { TOSS, SHINHAN, WOORI, KAKAO }
 
 extension ParseToBankType on BankType {
   String get bankName {
@@ -54,13 +49,3 @@ extension ParseToBankType on BankType {
     }
   }
 }
-
-// class BackInfo {
-//   final Image logo;
-//   final Color backgroundColor;
-//   final String name;
-//
-//   BackInfo(this.logo, this.backgroundColor, this.name);
-//
-//
-// }
