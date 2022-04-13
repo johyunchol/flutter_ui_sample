@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sample/src/toss/account_page.dart';
 import 'package:sample/src/toss/contact_page.dart';
+import 'package:sample/src/toss/model/account_info.dart';
 import 'package:sample/src/toss/recommand_page.dart';
 
 class TossRemittance extends StatefulWidget {
@@ -33,7 +34,7 @@ class _TossRemittanceState extends State<TossRemittance> with SingleTickerProvid
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     '어디로 돈을 보낼까요?',
                     style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w500),
                   ),
@@ -44,17 +45,17 @@ class _TossRemittanceState extends State<TossRemittance> with SingleTickerProvid
                       borderRadius: BorderRadius.circular(50),
                     ),
                     child: TabBar(
-                      padding: const EdgeInsets.all(1),
+                      padding: const EdgeInsets.all(4),
                       indicator: BoxDecoration(color: Colors.white24, borderRadius: BorderRadius.circular(50)),
                       controller: tabController,
                       labelColor: Colors.white,
-                      labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                       onTap: (index) {
                         setState(() {
-                          pageController?.animateToPage(index, duration: Duration(milliseconds: 300), curve: Curves.ease);
+                          pageController?.animateToPage(index, duration: const Duration(milliseconds: 300), curve: Curves.ease);
                         });
                       },
-                      tabs: [
+                      tabs: const [
                         Tab(text: '추천'),
                         Tab(text: '계좌'),
                         Tab(text: '연락처'),
@@ -69,7 +70,7 @@ class _TossRemittanceState extends State<TossRemittance> with SingleTickerProvid
                   controller: pageController,
               onPageChanged: (index) {
                 setState(() {
-                  tabController?.animateTo(index, duration: Duration(milliseconds: 300), curve: Curves.ease);
+                  tabController?.animateTo(index, duration: const Duration(milliseconds: 300), curve: Curves.ease);
                 });
               },
               children: [
@@ -84,10 +85,11 @@ class _TossRemittanceState extends State<TossRemittance> with SingleTickerProvid
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.white,
-        selectedLabelStyle: TextStyle(color: Colors.white),
+        selectedLabelStyle: const TextStyle(color: Colors.white),
         unselectedItemColor: Colors.grey,
-        unselectedLabelStyle: TextStyle(color: Colors.grey),
-        items: [
+        unselectedLabelStyle: const TextStyle(color: Colors.grey),
+        currentIndex: 2,
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: '홈'),
           BottomNavigationBarItem(icon: Icon(Icons.volunteer_activism), label: '혜택'),
           BottomNavigationBarItem(icon: Icon(Icons.monetization_on_outlined), label: '송금'),
