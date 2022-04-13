@@ -11,75 +11,58 @@ class TossRemittance extends StatefulWidget {
   State<TossRemittance> createState() => _TossRemittanceState();
 }
 
-class _TossRemittanceState extends State<TossRemittance> with SingleTickerProviderStateMixin {
-  TabController? tabController;
-  PageController? pageController;
-
-  @override
-  void initState() {
-    tabController = TabController(length: 3, vsync: this, initialIndex: 0);
-    pageController = PageController();
-    super.initState();
-  }
+class _TossRemittanceState extends State<TossRemittance> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    '어디로 돈을 보낼까요?',
-                    style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(height: 24),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white12,
-                      borderRadius: BorderRadius.circular(50),
+        child: DefaultTabController(
+          length: 3,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      '어디로 돈을 보낼까요?',
+                      style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w500),
                     ),
-                    child: TabBar(
-                      padding: const EdgeInsets.all(4),
-                      indicator: BoxDecoration(color: Colors.white24, borderRadius: BorderRadius.circular(50)),
-                      controller: tabController,
-                      labelColor: Colors.white,
-                      labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                      onTap: (index) {
-                        setState(() {
-                          pageController?.animateToPage(index, duration: const Duration(milliseconds: 300), curve: Curves.ease);
-                        });
-                      },
-                      tabs: const [
-                        Tab(text: '추천'),
-                        Tab(text: '계좌'),
-                        Tab(text: '연락처'),
-                      ],
+                    SizedBox(height: 24),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white12,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: TabBar(
+                        padding: const EdgeInsets.all(4),
+                        indicator: BoxDecoration(color: Colors.white24, borderRadius: BorderRadius.circular(50)),
+                        labelColor: Colors.white,
+                        labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                        tabs: const [
+                          Tab(text: '추천'),
+                          Tab(text: '계좌'),
+                          Tab(text: '연락처'),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-                child: PageView(
-                  controller: pageController,
-              onPageChanged: (index) {
-                setState(() {
-                  tabController?.animateTo(index, duration: const Duration(milliseconds: 300), curve: Curves.ease);
-                });
-              },
-              children: [
-                RecommandPage(),
-                AccountPage(),
-                ContactPage(),
-              ],
-            )),
-          ],
+              const Expanded(
+                child: TabBarView(
+                  children: [
+                    RecommandPage(),
+                    AccountPage(),
+                    ContactPage(),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
