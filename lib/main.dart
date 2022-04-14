@@ -63,7 +63,7 @@ class _AppState extends State<App> {
     },
     {
       'title': 'Toss 송금 UI',
-      'func': () => Get.offAll(const TossRemittance()),
+      'func': () => Get.to(const TossRemittance()),
     }
   ];
 

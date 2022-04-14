@@ -55,6 +55,21 @@ class _TossRemittanceState extends State<TossRemittance> {
           ),
         ),
       ),
+      //bottomNavigationBar: BottomNavigationBar(
+      //  type: BottomNavigationBarType.fixed,
+      //  selectedItemColor: Colors.white,
+      //  selectedLabelStyle: const TextStyle(color: Colors.white),
+      //  unselectedItemColor: Colors.grey,
+      //  unselectedLabelStyle: const TextStyle(color: Colors.grey),
+      //  currentIndex: 2,
+      //  items: const [
+      //    BottomNavigationBarItem(icon: Icon(Icons.home), label: '홈'),
+      //    BottomNavigationBarItem(icon: Icon(Icons.volunteer_activism), label: '혜택'),
+      //    BottomNavigationBarItem(icon: Icon(Icons.monetization_on_outlined), label: '송금'),
+      //    BottomNavigationBarItem(icon: Icon(Icons.stacked_line_chart), label: '주식'),
+      //    BottomNavigationBarItem(icon: Icon(Icons.menu), label: '전체'),
+      //  ],
+      //),
     );
   }
 }
