@@ -55,21 +55,31 @@ class _TossRemittanceState extends State<TossRemittance> {
           ),
         ),
       ),
-      //bottomNavigationBar: BottomNavigationBar(
-      //  type: BottomNavigationBarType.fixed,
-      //  selectedItemColor: Colors.white,
-      //  selectedLabelStyle: const TextStyle(color: Colors.white),
-      //  unselectedItemColor: Colors.grey,
-      //  unselectedLabelStyle: const TextStyle(color: Colors.grey),
-      //  currentIndex: 2,
-      //  items: const [
-      //    BottomNavigationBarItem(icon: Icon(Icons.home), label: '홈'),
-      //    BottomNavigationBarItem(icon: Icon(Icons.volunteer_activism), label: '혜택'),
-      //    BottomNavigationBarItem(icon: Icon(Icons.monetization_on_outlined), label: '송금'),
-      //    BottomNavigationBarItem(icon: Icon(Icons.stacked_line_chart), label: '주식'),
-      //    BottomNavigationBarItem(icon: Icon(Icons.menu), label: '전체'),
-      //  ],
-      //),
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+        child: Container(
+          padding: const EdgeInsets.only(left: 0.5, right: 0.5, top: 0.5),
+          color: Colors.white24,
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              selectedItemColor: Colors.white,
+              selectedLabelStyle: const TextStyle(color: Colors.white),
+              unselectedItemColor: Colors.grey,
+              unselectedLabelStyle: const TextStyle(color: Colors.grey),
+              currentIndex: 2,
+              items: const [
+                BottomNavigationBarItem(icon: Icon(Icons.home), label: '홈'),
+                BottomNavigationBarItem(icon: Icon(Icons.volunteer_activism), label: '혜택'),
+                BottomNavigationBarItem(icon: Icon(Icons.monetization_on_outlined), label: '송금'),
+                BottomNavigationBarItem(icon: Icon(Icons.stacked_line_chart), label: '주식'),
+                BottomNavigationBarItem(icon: Icon(Icons.menu), label: '전체'),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
