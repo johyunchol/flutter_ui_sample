@@ -4,6 +4,7 @@ import 'package:sample/src/baemin/baemin_home.dart';
 import 'package:sample/src/carrot/carrot_home.dart';
 import 'package:sample/src/kakaotalk/chat_room_list.dart';
 import 'package:sample/src/toss/toss_remittance.dart';
+import 'package:sample/src/wanted/wanted_home.dart';
 import 'package:sample/src/wavve/wavve_home.dart';
 
 void main() {
@@ -64,46 +65,40 @@ class _AppState extends State<App> {
     {
       'title': 'Toss 송금 UI',
       'func': () => Get.to(const TossRemittance()),
+    },
+    {
+      'title': 'Wanted Home UI',
+      'func': () => Get.to(const WantedHome()),
     }
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
-        body: ListView.separated(
-          separatorBuilder: (BuildContext context, int index) {
-            return Divider(height: 1);
-          },
-          itemBuilder: (BuildContext context, int index) {
-            return Ink(
-              child: InkWell(
-                onTap: list[index]['func'],
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 24.0),
-                    child: Text(
-                      list[index]['title'],
-                      style: TextStyle(fontSize: 20),
-                    ),
+      appBar: AppBar(),
+      body: ListView.separated(
+        separatorBuilder: (BuildContext context, int index) {
+          return Divider(height: 1);
+        },
+        itemBuilder: (BuildContext context, int index) {
+          return Ink(
+            child: InkWell(
+              onTap: list[index]['func'],
+              child: Container(
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 24.0),
+                  child: Text(
+                    list[index]['title'],
+                    style: TextStyle(fontSize: 20),
                   ),
                 ),
               ),
-            );
-          },
-          itemCount: list.length,
-        )
-        /*body: Column(
-        children: [
-          ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ChatRoomList()));
-              },
-              child: Text('카톡채팅방 UI'))
-        ],
-      ),*/
-        );
+            ),
+          );
+        },
+        itemCount: list.length,
+      ),
+    );
   }
 }
