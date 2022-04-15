@@ -14,45 +14,27 @@ class _AccountPageState extends State<AccountPage> {
 
   @override
   Widget build(BuildContext context) {
-    Widget _selectedBank() {
-      return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('은행 선택', style: TextStyle(color: Colors.grey, fontSize: 12, fontWeight: FontWeight.w400)),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text(bankName, style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400)),
-              Icon(Icons.keyboard_arrow_down, color: Colors.grey),
-            ]),
-            SizedBox(height: 8),
-            Divider(height: 1, color: Color(0xffe7e7e7)),
-          ],
-        ),
-      );
-    }
-
-    Widget _unselectedBank() {
-      return InkWell(
+    Widget _bankInfo() {
+      return GestureDetector(
         onTap: () {
           setState(() {
             bankName = '카카오뱅크';
           });
         },
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text('은행 선택', style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.w400)),
-                  Icon(Icons.keyboard_arrow_down, color: Colors.grey),
-                ],
-              ),
-            ),
-            const Divider(height: 1, color: Color(0xffe7e7e7)),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('은행 선택', style: TextStyle(color: bankName.isEmpty ? Colors.transparent : Colors.grey, fontSize: 12, fontWeight: FontWeight.w400)),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                Text(bankName.isEmpty ? '은행 선택' : bankName, style: TextStyle(color: bankName.isEmpty ? Colors.grey : Colors.white, fontSize: 16, fontWeight: FontWeight.w400)),
+                Icon(Icons.keyboard_arrow_down, color: Colors.grey),
+              ]),
+              SizedBox(height: 8),
+              Divider(height: 1, color: Color(0xffe7e7e7)),
+            ],
+          ),
         ),
       );
     }
@@ -67,7 +49,7 @@ class _AccountPageState extends State<AccountPage> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  bankName.isEmpty ? _unselectedBank() : _selectedBank(),
+                  _bankInfo(),
                   const SizedBox(height: 16),
                   TextFormField(
                       keyboardType: TextInputType.number,
@@ -89,9 +71,7 @@ class _AccountPageState extends State<AccountPage> {
                     decoration: BoxDecoration(color: const Color.fromARGB(255, 0, 71, 254), borderRadius: BorderRadius.circular(8)),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(8),
-                      onTap: () {
-                        FocusScope.of(context).unfocus();
-                      },
+                      onTap: () => FocusScope.of(context).unfocus(),
                       child: const SizedBox(width: double.infinity, height: 50, child: Center(child: Text('확인'))),
                     ),
                   ),
