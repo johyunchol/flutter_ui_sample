@@ -5,6 +5,8 @@ import 'package:sample/src/wanted/type_3.dart';
 import 'package:sample/src/wanted/type_4.dart';
 import 'package:sample/src/wanted/type_5.dart';
 import 'package:sample/src/wanted/type_6.dart';
+import 'package:sample/src/wanted/type_7.dart';
+import 'package:sample/src/wanted/type_8.dart';
 
 class WantedHome extends StatelessWidget {
   const WantedHome({Key? key}) : super(key: key);
@@ -26,6 +28,10 @@ class WantedHome extends StatelessWidget {
                 Type5(),
                 Container(height: 8, color: Colors.black),
                 Type6(),
+                Container(height: 8, color: Colors.black),
+                Type7(),
+                Container(height: 8, color: Colors.black),
+                Type8(),
               ],
             ),
           )
