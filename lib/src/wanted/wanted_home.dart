@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sample/src/wanted/type_1.dart';
 import 'package:sample/src/wanted/type_2.dart';
 import 'package:sample/src/wanted/type_3.dart';
+import 'package:sample/src/wanted/type_4.dart';
 
 class WantedHome extends StatelessWidget {
   const WantedHome({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class WantedHome extends StatelessWidget {
                 Type2(),
                 Container(height: 8, color: Colors.black),
                 Type3(),
-                Container(height: 8, color: Colors.black),
+                Type4(),
               ],
             ),
           )
