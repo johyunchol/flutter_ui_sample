@@ -36,6 +36,7 @@ class _Type1State extends State<Type1> {
   @override
   void dispose() {
     _pageController.dispose();
+    timer?.cancel();
     super.dispose();
   }
 
