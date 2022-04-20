@@ -7,7 +7,7 @@ class Type2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 24),
+        const SizedBox(height: 24),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
           child: Row(
@@ -23,7 +23,7 @@ class Type2 extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
               ...List.generate(10, (index) {
                 return Row(
                   children: [
@@ -32,30 +32,23 @@ class Type2 extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            width: double.infinity,
-                            height: 140,
-                            decoration: BoxDecoration(
-                              color: Colors.purpleAccent,
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                          ),
-                          SizedBox(height: 8),
-                          Text("3,600만 메시지를 배달한 '내 트리를 꾸며줘!'", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w700)),
-                          SizedBox(height: 16),
-                          Text('#개발 #UX/UI #IT/기술', style: TextStyle(color: Colors.grey, fontSize: 16)),
+                          Container(width: double.infinity, height: 140, decoration: BoxDecoration(color: Colors.purpleAccent, borderRadius: BorderRadius.circular(4))),
+                          const SizedBox(height: 8),
+                          const Text("3,600만 메시지를 배달한 '내 트리를 꾸며줘!'", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w700)),
+                          const SizedBox(height: 16),
+                          const Text('#개발 #UX/UI #IT/기술', style: TextStyle(color: Colors.grey, fontSize: 16)),
                         ],
                       ),
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                   ],
                 );
               }),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
             ],
           ),
         ),
-        SizedBox(height: 36)
+        const SizedBox(height: 36)
       ],
     );
   }

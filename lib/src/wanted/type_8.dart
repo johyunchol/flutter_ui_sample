@@ -26,7 +26,7 @@ class Type8 extends StatelessWidget {
                   children: [
                     Expanded(child: Column(children: const [Icon(Icons.search), Text('채용공고 >')])),
                     const VerticalDivider(width: 1),
-                    Expanded(child: Column(children: [Icon(Icons.search), Text('내 프로필 >')])),
+                    Expanded(child: Column(children: const [Icon(Icons.person_outline), Text('내 프로필 >')])),
                   ],
                 ),
               ),

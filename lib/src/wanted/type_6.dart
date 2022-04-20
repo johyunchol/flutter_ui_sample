@@ -8,15 +8,12 @@ class Type6 extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 24),
+        const SizedBox(height: 24),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text('wanted+', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),
-              Text('이런 걸 할 수 있어요!', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-            ],
+            children: const [Text('wanted+', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700)), Text('이런 걸 할 수 있어요!', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))],
           ),
         ),
         SingleChildScrollView(
@@ -32,10 +29,7 @@ class Type6 extends StatelessWidget {
                       child: Container(
                         width: double.infinity,
                         height: 140,
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(4),
-                        ),
+                        decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(4)),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -59,20 +53,13 @@ class Type6 extends StatelessWidget {
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: Colors.blueAccent,
-          ),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: Colors.blueAccent),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Icon(Icons.check, size: 16),
-              SizedBox(width: 4),
-              Text('첫 구독 0원 신청하기', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
-            ],
+            children: const [Icon(Icons.check, size: 16), SizedBox(width: 4), Text('첫 구독 0원 신청하기', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16))],
           ),
         ),
-        SizedBox(height: 36)
+        const SizedBox(height: 36)
       ],
     );
   }

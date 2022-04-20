@@ -9,12 +9,11 @@ class Type4 extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       decoration: BoxDecoration(
-        color: Colors.blue,
         borderRadius: BorderRadius.circular(4),
         gradient: const LinearGradient(
           colors: [
             Colors.blueAccent,
-            Colors.lightBlue,
+            Colors.lightBlueAccent,
           ]
         )
       ),

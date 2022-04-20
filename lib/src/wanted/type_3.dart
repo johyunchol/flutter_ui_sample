@@ -7,16 +7,12 @@ class Type3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 24),
+        const SizedBox(height: 24),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: const [
-              Text('개발자를 위한\nwanted+ VOD', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-              Text('더보기', style: TextStyle(color: Colors.grey, fontSize: 16)),
-            ],
+            mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.end,
+            children: const [Text('개발자를 위한\nwanted+ VOD', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)), Text('더보기', style: TextStyle(color: Colors.grey, fontSize: 16))],
           ),
         ),
         SingleChildScrollView(
@@ -34,14 +30,7 @@ class Type3 extends StatelessWidget {
                         children: [
                           Stack(
                             children: [
-                              Container(
-                                width: double.infinity,
-                                height: 180,
-                                decoration: BoxDecoration(
-                                  color: Colors.purpleAccent,
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
-                              ),
+                              Container(width: double.infinity, height: 180, decoration: BoxDecoration(color: Colors.purpleAccent, borderRadius: BorderRadius.circular(4))),
                               Positioned(
                                   bottom: 8,
                                   right: 8,
@@ -49,10 +38,7 @@ class Type3 extends StatelessWidget {
                                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.black12),
                                     child: const Padding(
                                       padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
-                                      child: Text(
-                                        '50:01',
-                                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
-                                      ),
+                                      child: Text('50:01', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700)),
                                     ),
                                   )),
                             ],

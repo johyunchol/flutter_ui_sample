@@ -7,7 +7,7 @@ class Type5 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 24),
+        const SizedBox(height: 24),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
           child: Row(
@@ -32,39 +32,22 @@ class Type5 extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            width: double.infinity,
-                            height: 180,
-                            decoration: BoxDecoration(
-                              color: Colors.purpleAccent,
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                          ),
+                          Container(width: double.infinity, height: 180, decoration: BoxDecoration(color: Colors.purpleAccent, borderRadius: BorderRadius.circular(4))),
                           const SizedBox(height: 8),
                           Row(
                             children: [
                               Container(
                                 padding: const EdgeInsets.all(4),
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.deepPurpleAccent),
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
-                                child: const Text('네트워킹', style: TextStyle(color: Colors.deepPurpleAccent, fontSize: 12),),
+                                decoration: BoxDecoration(border: Border.all(color: Colors.deepPurpleAccent), borderRadius: BorderRadius.circular(4)),
+                                child: const Text('네트워킹', style: TextStyle(color: Colors.deepPurpleAccent, fontSize: 12)),
                               ),
                               SizedBox(width: 4),
                               Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
+                                decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(4)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(4.0),
                                   child: Row(
-                                    children: const [
-                                      Icon(Icons.wifi_tethering, color: Colors.black, size: 12),
-                                      SizedBox(width: 2),
-                                      Text('온라인', style: TextStyle(color: Colors.black, fontSize: 12))
-                                    ],
+                                    children: const [Icon(Icons.wifi_tethering, color: Colors.black, size: 12), SizedBox(width: 2), Text('온라인', style: TextStyle(color: Colors.black, fontSize: 12))],
                                   ),
                                 ),
                               ),
