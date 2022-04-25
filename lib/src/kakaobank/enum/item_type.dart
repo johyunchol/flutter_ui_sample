@@ -1,0 +1,1 @@
+enum ItemType { CONTENTS, DIVIDER }
