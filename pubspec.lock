@@ -83,6 +83,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  flutter_naver_map:
+    dependency: "direct main"
+    description:
+      name: flutter_naver_map
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.10.5"
   flutter_svg:
     dependency: "direct main"
     description:

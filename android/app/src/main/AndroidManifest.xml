@@ -1,5 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.co.kkensu.sample">
+
+    <!-- 네이버 맵에서 현 위치 탐색 기능을 사용할 때만, 해당 권한 2개를 선언합니다 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
    <application
         android:label="sample"
         android:name="${applicationName}"
@@ -30,5 +35,11 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+       <!-- 네이버 맵 SDK의 Client ID를 넣는 곳입니다. 필수로 넣어야, 지도가 동작합니다. -->
+       <meta-data
+           android:name="com.naver.maps.map.CLIENT_ID"
+           android:value="it98k498zt" />
+
     </application>
 </manifest>
